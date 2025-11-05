@@ -1,0 +1,12 @@
+﻿{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Run JavaFX App",
+      "request": "launch",
+      "mainClass": "smartlighting.MainApp",
+      "vmArgs": "--enable-native-access=javafx.graphics --module-path C:\\JavaFX\\lib --add-modules javafx.controls,javafx.fxml"
+    }
+  ]
+}
