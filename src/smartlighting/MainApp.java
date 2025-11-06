@@ -1,22 +1,26 @@
 package smartlighting;
 
 import javafx.application.Application;
-import javafx.stage.Stage;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 public class MainApp extends Application {
+    
     @Override
-    public void start(Stage stage) {
-        Label label = new Label("JavaFX fungerer! 🔥");
-        StackPane root = new StackPane(label);
-        Scene scene = new Scene(root, 400, 200);
-        stage.setScene(scene);
-        stage.setTitle("JavaFX Test");
-        stage.show();
+    public void start(Stage primaryStage) throws Exception {
+        Controller controller = new Controller();
+        DashboardLayout dashboard = new DashboardLayout(controller);
+        
+        Scene scene = new Scene(dashboard.createLayout(), 800, 600);
+        scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+        
+        primaryStage.setTitle("Smart Lighting Simulator");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
-
+    
     public static void main(String[] args) {
         launch(args);
     }
